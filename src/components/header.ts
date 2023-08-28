@@ -42,7 +42,13 @@ export class AppHeader extends LitElement {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 12em;
+        gap: 6px;
+      }
+
+      img {
+        view-transition-name: main-header-image;
+        display: block;
+        width: 20px;
       }
 
       @media(prefers-color-scheme: light) {
@@ -69,6 +75,8 @@ export class AppHeader extends LitElement {
           ${this.enableBack ? html`<sl-button href="${resolveRouterPath()}">
             Back
           </sl-button>` : null}
+
+          <img src="/assets/icons/512.png">
 
           <h1>${this.title}</h1>
         </div>

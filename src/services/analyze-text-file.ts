@@ -1,6 +1,15 @@
 export async function openTextFile() {
     // open a text file with the file system access api
-    const [fileHandle] = await (window as any).showOpenFilePicker();
+    const [fileHandle] = await (window as any).showOpenFilePicker({
+        types: [
+            {
+                description: "Text Files",
+                accept: {
+                    "text/plain": [".txt"],
+                },
+            },
+        ],
+    });
     const file = await fileHandle.getFile();
     const contents = await file.text();
     console.log("contents", contents);

@@ -17,6 +17,8 @@ export class AppHome extends LitElement {
 
   @state() analyzed: boolean = false;
 
+  @state() analyzing: boolean = false;
+
   static get styles() {
     return [
       styles,
@@ -29,6 +31,11 @@ export class AppHome extends LitElement {
       sl-textarea::part(textarea) {
         height: 80vh;
         border: none;
+      }
+
+      sl-textarea::part(base) {
+        border: none;
+        background-color: hsl(240deg 5.26% 14.9%);
       }
 
       #toolbar {
@@ -94,8 +101,16 @@ export class AppHome extends LitElement {
         animation: 0.3s ease-out 0s 1 slideInFromRight;
       }
 
+      #main-container #analyzations::-webkit-scrollbar {
+        width: 0px;
+      }
+
       sl-card {
         width: 100%;
+      }
+
+      sl-card::part(base) {
+        border: none;
       }
 
       h2 {
@@ -154,6 +169,8 @@ export class AppHome extends LitElement {
     const { openTextFile } = await import("../services/analyze-text-file")
     const text = await openTextFile();
 
+    this.analyzing = true;
+
     const { analyzeTextFile } = await import("../services/analyze-text-file");
     const data = await analyzeTextFile(text);
     console.log("data", JSON.stringify(JSON.parse(data)));
@@ -168,6 +185,8 @@ export class AppHome extends LitElement {
     console.log("summary", summary);
 
     this.summary = summary;
+
+    this.analyzing = false;
 
     this.analyzed = true;
 
@@ -192,7 +211,7 @@ export class AppHome extends LitElement {
             <div id="no-file-opened">
               <h3>No file opened</h3>
 
-              <sl-button size="small" variant="primary" @click="${this.openFile}">Open Text File</sl-button>
+              <sl-button ?loading="${this.analyzing}" variant="primary" @click="${this.openFile}">Open Text File</sl-button>
 
               <img src="/assets/no-file.svg" alt="No file opened" />
             </div>
