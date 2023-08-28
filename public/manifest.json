@@ -1,14 +1,14 @@
 {
   "id": "/",
   "scope": "/",
-  "name": "PWA Starter",
+  "name": "File Analyzer",
   "display": "standalone",
   "start_url": "/",
-  "short_name": "starter",
-  "theme_color": "#E1477E",
+  "short_name": "Analyzer",
+  "theme_color": "#1111b2",
   "description": "This is a PWA Starter app",
   "orientation": "any",
-  "background_color": "#E1477E",
+  "background_color": "#1111b2",
   "related_applications": [],
   "prefer_related_applications": false,
   "display_override": ["window-controls-overlay"],
@@ -17,23 +17,13 @@
   },
   "icons": [
     {
-      "src": "assets/icons/512x512.png",
+      "src": "assets/icons/512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "assets/icons/192x192.png",
+      "src": "assets/icons/192.png",
       "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/icons/48x48.png",
-      "sizes": "48x48",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/icons/24x24.png",
-      "sizes": "24x24",
       "type": "image/png"
     }
   ],
@@ -59,28 +49,6 @@
       "description": "Open the about page",
       "url": "/about",
       "icons": [{ "src": "assets/icons/192x192.png", "sizes": "192x192" }]
-    }
-  ],
-  "widgets": [
-    {
-      "name": "Starter Widget",
-      "tag": "starterWidget",
-      "ms_ac_template": "widget/ac.json",
-      "data": "widget/data.json",
-      "description": "A simple widget example from pwa-starter.",
-      "screenshots": [
-        {
-          "src": "assets/screenshots/widget-screen.png",
-          "sizes": "500x500",
-          "label": "Widget screenshot"
-        }
-      ],
-      "icons": [
-        {
-          "src": "assets/icons/48x48.png",
-          "sizes": "48x48"
-        }
-      ]
     }
   ]
 }
