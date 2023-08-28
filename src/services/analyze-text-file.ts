@@ -11,7 +11,7 @@ export async function openTextFile() {
 export async function analyzeTextFile(text: string) {
     // analyze the text
 
-    const response = await fetch(`http://localhost:3000/analyze?mood=${text}`, {
+    const response = await fetch(`https://text-help-server-qsqckaz7va-uc.a.run.app/analyze?mood=${text}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -26,7 +26,7 @@ export async function analyzeTextFile(text: string) {
 
 export async function summarizeTextFile(text: string) {
     // summarize the text
-    const response = await fetch(`http://localhost:3000/summarize?mood=${text}`, {
+    const response = await fetch(`https://text-help-server-qsqckaz7va-uc.a.run.app/summarize?mood=${text}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
